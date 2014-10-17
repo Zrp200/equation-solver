@@ -12,7 +12,7 @@ end
 def equation(equation, variable, set = -1000..1000)
 	variable = Regexp.new variable
 	/\=/ =~ equation	
-	l, r = $~.pre_match, $~.post_match
+	left, right = $~.pre_match, $~.post_match
 	varsub = proc { |side, value, variable| side.gsub(variable, value) }
 	set = set.to_a
 	for value in set
