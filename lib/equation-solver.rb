@@ -6,7 +6,7 @@ equation("5*x", "10", "x") will return "x = 2"
 =end
 class Equation
 	def initialize(equation, variable, set=(-100..100))
-		raise StandardError unless variable.match equation
+		raise StandardError unless variable == equation
 	end
 end
 def equation(equation, variable, set = -1000..1000)
@@ -21,7 +21,7 @@ def equation(equation, variable, set = -1000..1000)
 			final = "#{variable} = #{value}"
 		end
 	end
-	final = "x == nil" if nil
+	final = "x == nil" if final.nil?
 	return final
 end
 			
