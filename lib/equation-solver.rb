@@ -10,18 +10,17 @@ class Equation
 	end
 end
 def equation(equation, variable, set = -1000..1000)
-	variable = Regexp.new variable
 	/\=/ =~ equation	
 	left, right = $~.pre_match, $~.post_match
-	varsub = proc { |side, value, variable| side.gsub(variable, value) }
+	varsub = proc { |side, value, variable| side.gsub(Regexp.new(variable), value) }
 	set = set.to_a
 	for value in set
 		l, r = varsub.call(left, value.to_s, variable).to_i, varsub.call(right, value.to_s, variable).to_i
 		if l == r
-			final = "#{variable} = #{value}"
+			final = "#{variable.to_s} = #{value}"
 		end
 	end
-	final = "#{variable} = nil" unless final
+	final = "#{variable.to_s} = nil" unless final
 	return final
 end
 			
