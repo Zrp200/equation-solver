@@ -15,6 +15,7 @@ def equation(left, right, variable, set = -1000..1000)
 			final = "#{variable} = #{value}"
 		end
 	end
+	final = "x == nil" if nil
 	return final
 end
 			
