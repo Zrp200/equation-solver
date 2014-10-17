@@ -4,7 +4,7 @@ parameter set may be a range or an Array. It can also be left alone.
 parameter variable must be a String.
 equation("5*x", "10", "x") will return "x = 2"
 =end
-def equation(left, right, variable, set=-1000..1000)
+def equation(left, right, variable, set = -1000..1000)
 	varsub = proc do |side, value, variable|
 		side.gsub(variable, value).to_i
 	end
@@ -15,7 +15,7 @@ def equation(left, right, variable, set=-1000..1000)
 			final = "#{variable} = #{value}"
 		end
 	end
-	final
+	return final
 end
 			
         
