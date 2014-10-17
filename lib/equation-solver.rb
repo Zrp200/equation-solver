@@ -11,9 +11,11 @@ def equation(left, right, variable, set=-1000..1000)
 	set = set.to_a
 	for value in set
 		l, r = varsub.call(left, value.to_s, variable).to_i, varsub.call(right, value.to_s, variable).to_i
-		return "#{variable} = #{value}" if l == r
-	end	
-	return "#{variable} = nil"
+		if l == r
+			return "#{variable} = #{value}"
+			break
+		end
+	end
 end
 			
         
