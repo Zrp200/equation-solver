@@ -1,4 +1,4 @@
 language: ruby
 rvm: 2.0.0
 before_script: gem install rspec
-script: rspec spec
+script: rspec spec --color -f doc
