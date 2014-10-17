@@ -6,7 +6,7 @@ equation("5*x", "10", "x") will return "x = 2"
 =end
 def equation(left, right, variable, set=-1000..1000)
 	varsub = proc do |side, value, variable|
-		side.gsub(variable, value).to_i if side.include? variable
+		side.gsub(variable, value).to_i
 	end
 	set = set.to_a
 	for value in set
