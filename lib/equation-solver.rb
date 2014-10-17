@@ -21,7 +21,7 @@ def equation(equation, variable, set = -1000..1000)
 			final = "#{variable} = #{value}"
 		end
 	end
-	final = "x == nil" if final.nil?
+	final = "#{variable} = nil" unless final
 	return final
 end
 			
