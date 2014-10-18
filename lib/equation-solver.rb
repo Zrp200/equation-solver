@@ -33,7 +33,7 @@ def equation(equation, variable, set = -1000..1000)
 			return "#{variable.to_s} = #{value}"
 		end
 	end
-	return FORMAT left
+	return FORMAT.call left
 end
 			
         
