@@ -27,10 +27,9 @@ def equation(equation, variable, set = -1000..1000)
 	set = set.to_a
 	for value in set
 		l, r = varsub.call(left, value.to_s, variable), varsub.call(right, value.to_s, variable)
-		l = FORMAT.call l
-		r = FORMAT.call r
-		if l == r
+		if FORMAT.call(l) == FORMAT.call(r)
 			final = "#{variable.to_s} = #{value}"
+			break
 		end
 	end
 	return final
