@@ -27,13 +27,13 @@ def equation(equation, variable, set = -1000..1000)
 	set = set.to_a
 	for value in set
 		l, r = varsub.call(left, value.to_s, variable), varsub.call(right, value.to_s, variable)
-		FORMAT.call l
-		FORMAT.call r
+		l = FORMAT.call l
+		r = FORMAT.call r
 		if l == r
-			return "#{variable.to_s} = #{value}"
+			final = "#{variable.to_s} = #{value}"
 		end
 	end
-	return FORMAT.call left
+	return final
 end
 			
         
