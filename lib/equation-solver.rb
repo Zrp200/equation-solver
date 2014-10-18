@@ -32,7 +32,6 @@ def equation(equation, variable, set = -1000..1000)
 			break
 		end
 	end
-	return final
 end
 			
         
