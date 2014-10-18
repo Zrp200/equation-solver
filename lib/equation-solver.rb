@@ -23,7 +23,6 @@ end
 def equation(equation, variable, set = -1000..1000)
 	/\=/ =~ equation	
 	left, right = $~.pre_match, $~.post_match
-	
 	varsub = proc { |side, value, variable| side.gsub(variable, value) }
 	set = set.to_a
 	for value in set
@@ -34,7 +33,6 @@ def equation(equation, variable, set = -1000..1000)
 			final = "#{variable.to_s} = #{value}"
 		end
 	end
-	final = "#{variable.to_s} = nil" unless final
 	return final
 end
 			
