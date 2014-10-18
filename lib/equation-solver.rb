@@ -26,8 +26,8 @@ def equation(equation, variable, set = -1000..1000)
 	varsub = proc { |side, value, variable| side.gsub(variable, value) }
 	set = set.to_a
 	for value in set
-		l, r = varsub.call(left, value.to_s, variable), varsub.call(right, value.to_s, variable)
-		 fvalue = value if FORMAT.call(l) == FORMAT.call(r)
+		l, r = FORMAT.call(varsub.call(left, value.to_s, variable)), FORMAT.call(varsub.call(right, value.to_s, variable))
+		fvalue = value if l == r
 	end
 	return "#{variable} = #{fvalue}"
 end
