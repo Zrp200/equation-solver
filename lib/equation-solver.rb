@@ -29,7 +29,7 @@ def equation(equation, variable, set = -1000..1000)
 		l, r = varsub.call(left, value.to_s, variable), varsub.call(right, value.to_s, variable)
 		 fvalue = value if FORMAT.call(l) == FORMAT.call(r)
 	end
-	return"#{variable} = #{fvalue}"
+	return "#{variable} = #{fvalue}"
 end
 			
         
