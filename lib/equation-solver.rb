@@ -30,10 +30,9 @@ def equation(equation, variable, set = -1000..1000)
 		FORMAT.call l
 		FORMAT.call r
 		if l == r
-			final = "#{variable.to_s} = #{value}"
+			return "#{variable.to_s} = #{value}"
 		end
 	end
-	return final
 end
 			
         
