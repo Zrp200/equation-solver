@@ -20,15 +20,16 @@ def format_equation(side)
 		when "/" then s1 / s3
 		when "*" then s1 * s3
 	end
+	return side
 end
 def equation(equation, variable, set = -1000..1000)
 	/\=/ =~ equation	
-	left, right = $~.pre_match, $~.post_match
+	left, right, fvalue = $~.pre_match, $~.post_match, nil
 	varsub = proc { |side, value, variable| side.gsub(variable, value) }
 	set = set.to_a
 	for value in set
 		l, r = format_equation(varsub.call(left, value.to_s, variable)), format_equation(varsub.call(right, value.to_s, variable))
-		$fvalue = value if l == r
+		fvalue = value if l == r
 	end
 	return "#{variable} = #{$fvalue}"
 end
