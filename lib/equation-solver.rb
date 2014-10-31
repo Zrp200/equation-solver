@@ -9,7 +9,7 @@ class Equation
 		raise StandardError unless variable == equation
 	end
 end
-OPS = /[\+\-\=\*\/]/
+OPS = /[+-=*]/
 
 def format_equation(side)
 	s = side.partition OPS
@@ -31,7 +31,7 @@ def equation(equation, variable, set = -1000..1000)
 		l, r = format_equation(varsub.call(left, value.to_s, variable)), format_equation(varsub.call(right, value.to_s, variable))
 		fvalue = value if l == r
 	end
-	return "#{variable} = #{$fvalue}"
+	return fvalue
 end
 			
         
